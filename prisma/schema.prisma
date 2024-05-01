@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Restaurant {
+  id                  String     @id @default(uuid())
+  name                String
+  imageUrl            String
+  deliveryFee         Float
+  deliveryTimeMinutes Int
+  categories          Category[]
+  products            Product[]
+}
+
+model Category {
+  id          String       @id @default(uuid())
+  name        String
+  imageUrl    String
+  restaurants Restaurant[]
+  products    Product[]
+}
+
+model Product {
+  id                 String     @id @default(uuid())
+  name               String
+  description        String
+  imageUrl           String
+  price              Float
+  discountPercentage Int        @default(0)
+  restautantId       String
+  restaurant         Restaurant @relation(fields: [restautantId], references: [id])
+  categoryId         String
+  category           Category   @relation(fields: [categoryId], references: [id])
+}
