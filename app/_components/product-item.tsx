@@ -28,7 +28,7 @@ export default function ProductItem({ product }: ProductItemProps) {
         />
         <Badge
           variant="destructive"
-          className=" absolute left-2 top-2 flex items-center gap-[2px] px-2 py-[2px]"
+          className="absolute left-2 top-2 flex items-center gap-[2px] px-2 py-[2px]"
         >
           <ArrowDown size={12} />
           <span>{product.discountPercentage}%</span>
