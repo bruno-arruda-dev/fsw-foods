@@ -11,7 +11,8 @@ CREATE TABLE "Restaurant" (
 CREATE TABLE "Category" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "name" TEXT NOT NULL,
-    "imageUrl" TEXT NOT NULL
+    "imageUrl" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 -- CreateTable
@@ -24,6 +25,7 @@ CREATE TABLE "Product" (
     "discountPercentage" INTEGER NOT NULL DEFAULT 0,
     "restautantId" TEXT NOT NULL,
     "categoryId" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT "Product_restautantId_fkey" FOREIGN KEY ("restautantId") REFERENCES "Restaurant" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT "Product_categoryId_fkey" FOREIGN KEY ("categoryId") REFERENCES "Category" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
