@@ -25,6 +25,7 @@ export default async function Home() {
       },
     },
   });
+
   return (
     <>
       <Header />
@@ -48,13 +49,15 @@ export default async function Home() {
         <div className="flex items-center justify-between px-5">
           <h2 className="font-semibold">Pedidos Recomendados</h2>
 
-          <Button
-            variant="ghost"
-            className="h-fit p-0 text-primary hover:bg-transparent"
-          >
-            Ver todos
-            <ChevronRightIcon />
-          </Button>
+          <Link href={`/products/recommended`}>
+            <Button
+              variant="ghost"
+              className="h-fit p-0 text-primary hover:bg-transparent"
+            >
+              Ver todos
+              <ChevronRightIcon />
+            </Button>
+          </Link>
         </div>
         <ProductList products={products} />
       </div>
