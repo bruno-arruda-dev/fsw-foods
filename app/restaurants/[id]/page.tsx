@@ -22,6 +22,9 @@ export default async function RestaurantPage({
     },
     include: {
       categories: {
+        orderBy: {
+          createdAt: "desc",
+        },
         include: {
           products: {
             where: {
